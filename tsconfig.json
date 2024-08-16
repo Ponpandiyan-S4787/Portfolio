@@ -12,6 +12,9 @@
       ],
       "home-ui": [
         "./dist/home-ui"
+      ],
+      "shared-ui": [
+        "./dist/shared-ui"
       ]
     },
     "noPropertyAccessFromIndexSignature": true,
