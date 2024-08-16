@@ -102,6 +102,39 @@
           }
         }
       }
+    },
+    "home-smart": {
+      "projectType": "library",
+      "root": "projects/home-smart",
+      "sourceRoot": "projects/home-smart/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/home-smart/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/home-smart/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/home-smart/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/home-smart/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {
