@@ -9,6 +9,9 @@
     "paths": {
       "home-smart": [
         "./dist/home-smart"
+      ],
+      "home-ui": [
+        "./dist/home-ui"
       ]
     },
     "noPropertyAccessFromIndexSignature": true,
