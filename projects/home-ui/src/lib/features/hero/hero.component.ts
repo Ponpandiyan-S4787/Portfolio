@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { iconMockRespose } from './mocks/hero-mocks';
 
 @Component({
   selector: 'lib-hero',
@@ -9,31 +10,22 @@ import { Component } from '@angular/core';
   styleUrl: './hero.component.scss',
 })
 export class HeroComponent {
+  item:string="Dashboard"
+  isActivated!:Object
+  mockDatas= iconMockRespose
   toggleHidden() {
     document.getElementById('app-sidebar')?.classList.toggle('hidden');
   }
   toggleMenuHidden() {
     document.getElementById('app-menu')?.classList.toggle('hidden');
   }
-  clicked(idx: any, id: number) {
-    console.log(idx, id);
-    if (true) {
-      console.log('hi');
-      document.getElementById('pi-menuItem')?.classList.toggle('hidden');
+  iconClicked(idx: number) {
+    this.isActivated = idx; 
+    console.log(typeof(this.isActivated, null))
+    this.mockDatas.find(val=>{
+      if(val.id===idx){
+      this.item=this.mockDatas[idx-1].content
     }
+    })
   }
-  // bg-indigo-700
-
-  iconMockDatas = [
-    {
-      id: 1,
-      icon: 'home',
-      content: 'Dashboard',
-    },
-    { id: 2, icon: 'bookmark', content: 'Bookmarks' },
-    { id: 3, icon: 'users', content: 'Team' },
-    { id: 4, icon: 'comments', content: 'Messages' },
-    { id: 5, icon: 'calendar', content: 'Calendar' },
-    { id: 6, icon: 'cog', content: 'Settings' },
-  ];
 }

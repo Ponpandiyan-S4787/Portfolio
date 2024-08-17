@@ -19,59 +19,14 @@
         </div>
         <div class="overflow-y-auto mt-3">
           <ul class="list-none py-3 px-2 m-0">
-            <!-- <li class="mb-2">
-              <a
-                pripple=""
-                class="p-ripple p-element flex align-items-center cursor-pointer p-3 lg:justify-content-center hover:bg-indigo-400 border-round text-indigo-100 hover:text-indigo-50 transition-duration-150 transition-colors bg-indigo-700"
-                (click)="clicked($event)"
-                ><i class="pi pi-home text-lg"></i><span class="p-ink"></span
-              ></a>
-            </li>
+            @for (content of mockDatas; track $index) {
             <li class="mb-2">
               <a
                 pripple=""
-                class="p-ripple p-element flex align-items-center cursor-pointer p-3 lg:justify-content-center hover:bg-indigo-400 border-round text-indigo-100 hover:text-indigo-50 transition-duration-150 transition-colors"
-                ><i class="pi pi-bookmark text-lg"></i
-                ><span class="p-ink"></span
-              ></a>
-            </li>
-            <li class="mb-2">
-              <a
-                pripple=""
-                class="p-ripple p-element flex align-items-center cursor-pointer p-3 lg:justify-content-center hover:bg-indigo-400 border-round text-indigo-100 hover:text-indigo-50 transition-duration-150 transition-colors"
-                ><i class="pi pi-users text-lg"></i><span class="p-ink"></span
-              ></a>
-            </li>
-            <li class="mb-2">
-              <a
-                pripple=""
-                class="p-ripple p-element flex align-items-center cursor-pointer p-3 lg:justify-content-center hover:bg-indigo-400 border-round text-indigo-100 hover:text-indigo-50 transition-duration-150 transition-colors"
-                ><i class="pi pi-comments text-lg"></i
-                ><span class="p-ink"></span
-              ></a>
-            </li>
-            <li class="mb-2">
-              <a
-                pripple=""
-                class="p-ripple p-element flex align-items-center cursor-pointer p-3 lg:justify-content-center hover:bg-indigo-400 border-round text-indigo-100 hover:text-indigo-50 transition-duration-150 transition-colors"
-                ><i class="pi pi-calendar text-lg"></i
-                ><span class="p-ink"></span
-              ></a>
-            </li>
-            <li class="mb-2">
-              <a
-                pripple=""
-                class="p-ripple p-element flex align-items-center cursor-pointer p-3 lg:justify-content-center hover:bg-indigo-400 border-round text-indigo-100 hover:text-indigo-50 transition-duration-150 transition-colors"
-                ><i class="pi pi-cog text-lg"></i><span class="p-ink"></span
-              ></a>
-            </li> -->
-            @for (icon of iconMockDatas; track $index) {
-            <li class="mb-2">
-              <a
-                pripple=""
-                class="p-ripple p-element flex align-items-center cursor-pointer p-3 lg:justify-content-center hover:bg-indigo-400 border-round text-indigo-100 hover:text-indigo-50 transition-duration-150 transition-colors bg-indigo-700"
-                (click)="clicked($index + 1, icon.id)"
-                ><i class="pi pi-{{ icon.icon }} text-lg"></i
+                class="p-ripple p-element flex align-items-center cursor-pointer p-3 lg:justify-content-center hover:bg-indigo-400 border-round text-indigo-100 hover:text-indigo-50 transition-duration-150 transition-colors "
+                (click)="iconClicked( $index+1)"
+                [ngClass]="{'active': isActivated ===content.id}"
+                ><i class="pi pi-{{ content.icon }} text-lg"></i
                 ><span class="p-ink"></span
               ></a>
             </li>
@@ -111,16 +66,9 @@
         <div
           class="border-2 border-dashed surface-border border-round flex-auto"
         >
-          @for (item of iconMockDatas; track $index) {
-          <div id="pi-menuItem" class="p-3 font-medium text-xl text-900 hidden">
-            {{ item.content }}
+          <div id="pi-menuItem" class="p-3 font-medium text-xl text-900">
+              {{item}}
           </div>
-          }
-          <!-- <div class="p-3 font-medium text-xl text-900 hidden">Bookmarks</div>
-          <div class="p-3 font-medium text-xl text-900 hidden">Team</div>
-          <div class="p-3 font-medium text-xl text-900 hidden">Messages</div>
-          <div class="p-3 font-medium text-xl text-900 hidden">Calendar</div>
-          <div class="p-3 font-medium text-xl text-900 hidden">Settings</div> -->
         </div>
       </div>
     </div>
