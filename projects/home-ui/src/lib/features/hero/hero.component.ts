@@ -3,11 +3,13 @@ import { Component, } from '@angular/core';
 import { iconMockRespose } from './mocks/hero-mocks';
 import { BookmarkComponent } from "../bookmark/bookmark.component";
 import { DashboardComponent } from '../dashboard/dashboard.component';
+import { AboutComponent } from "../about/about.component";
+import { ContactusComponent } from "../contactus/contactus.component";
 
 @Component({
   selector: 'lib-hero',
   standalone: true,
-  imports: [CommonModule,DashboardComponent, BookmarkComponent],
+  imports: [CommonModule, DashboardComponent, BookmarkComponent, AboutComponent, ContactusComponent],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss',
 })
