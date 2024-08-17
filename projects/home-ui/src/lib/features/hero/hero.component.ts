@@ -1,17 +1,20 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, } from '@angular/core';
 import { iconMockRespose } from './mocks/hero-mocks';
+import { BookmarkComponent } from "../bookmark/bookmark.component";
+import { DashboardComponent } from '../dashboard/dashboard.component';
 
 @Component({
   selector: 'lib-hero',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,DashboardComponent, BookmarkComponent],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss',
 })
 export class HeroComponent {
-  item:string="Dashboard"
   isActivated!:Object
+  item:string="Dashboard"
+  routedFeature="Dashboard"
   mockDatas= iconMockRespose
   toggleHidden() {
     document.getElementById('app-sidebar')?.classList.toggle('hidden');
@@ -19,12 +22,12 @@ export class HeroComponent {
   toggleMenuHidden() {
     document.getElementById('app-menu')?.classList.toggle('hidden');
   }
-  iconClicked(idx: number) {
+  iconClicked(idx: number, route: string) {
     this.isActivated = idx; 
-    console.log(typeof(this.isActivated, null))
     this.mockDatas.find(val=>{
       if(val.id===idx){
       this.item=this.mockDatas[idx-1].content
+      this.routedFeature=route
     }
     })
   }

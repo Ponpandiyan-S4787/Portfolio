@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { HeroComponent } from '../../features/hero/hero.component';
 
 @Component({
@@ -9,5 +9,5 @@ import { HeroComponent } from '../../features/hero/hero.component';
   styleUrl: './home-page.component.scss'
 })
 export class HomePageComponent {
-
+  
 }

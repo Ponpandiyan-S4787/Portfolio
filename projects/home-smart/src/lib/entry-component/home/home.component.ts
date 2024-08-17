@@ -9,5 +9,5 @@ import { HomePageComponent } from '../../../../../home-ui/src/public-api';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-
+  
 }
