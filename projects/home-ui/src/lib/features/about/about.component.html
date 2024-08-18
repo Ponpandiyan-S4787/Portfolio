@@ -1,1 +1,44 @@
-<p>about works!</p>
+<div class="container-fluid">
+  <div class="container">
+    <div class="about-header">
+      <h1 >
+        Ponpandiyan Subramaniyan
+        <p class="about-sub-header">Frontend developer</p>
+      </h1>
+    </div>
+    <section class="about-section">
+      <div class="about-content">
+        <p>
+          {{ content }}
+        </p>
+        @for (content of aboutMockResponse; track $index) {
+        <ul>
+          <li>
+            {{ content.content }}
+          </li>
+        </ul>
+        }
+      </div>
+    </section>
+    <div class="about-proj-header">
+
+      <h1>Projects Details</h1>
+    </div>
+    <section class="about-section-proj">
+      @for (card of cardMock; track $index) {
+      <p-card
+        header="{{card.projName}}"
+        subheader=""
+        [style]="{  marginBottom: '10px'}"
+      >
+        <ng-template pTemplate="header">
+          <img
+            alt="Card"
+            src="{{card.img}}"
+          />
+        </ng-template>
+        <p>{{card.projDetails}}</p>
+      </p-card>}
+    </section>
+  </div>
+</div>
